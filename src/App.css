@@ -1,0 +1,52 @@
+.trip-planner {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.trip-details {
+  max-width: fit-content;
+  display: grid;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.itinerary-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.activity {
+  display: grid;
+  grid-template-columns: auto 100px 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.itinerary-day {
+  background: rgb(117, 105, 105);
+  padding: 15px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+input, select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+} 
