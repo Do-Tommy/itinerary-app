@@ -57,4 +57,13 @@ input, select {
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
+}
+
+.remove-activity {
+  background: #dc3545;
+  margin-left: 10px;
+}
+
+.remove-activity:hover {
+  background: #c82333;
 } 

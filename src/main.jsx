@@ -5,7 +5,6 @@ import App from './App.jsx'
 import TripPlanner from './TripPlanner.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <TripPlanner />
-  </StrictMode>,
+  <TripPlanner/>
+  
 )

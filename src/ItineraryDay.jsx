@@ -12,7 +12,7 @@ function ItineraryDay({ day, activities, onUpdateActivities }) {
   });
 
   const handleAddActivity = () => {
-    onUpdateActivities(day, null, 'add');
+    onUpdateActivities(day,activities.index,'add',)
   };
 
   return (
@@ -40,6 +40,7 @@ function ItineraryDay({ day, activities, onUpdateActivities }) {
               value={activity.description}
               onChange={(e) => onUpdateActivities(day, index, 'description', e.target.value)}
             />
+            <button onClick={() => onUpdateActivities(day, index, 'remove')}>Remove</button>
           </div>
         ))}
         <button onClick={handleAddActivity}>Add Activity</button>
