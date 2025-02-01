@@ -32,6 +32,14 @@
   width: 100%;
 }
 
+.day-date {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 button {
   background: #007bff;
   color: white;

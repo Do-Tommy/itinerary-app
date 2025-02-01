@@ -42,6 +42,7 @@ function TripPlanner() {
 
       // Handle different update types
       if (field === 'add') {
+        
         dayEntry.activities.push({ time: '', type: '', description: '' });
       } else {
         dayEntry.activities[index] = {
