@@ -2,14 +2,27 @@ import React from 'react';
 import { ACTIVITY_TYPES } from './constants/activityTypes';
 
 function ItineraryDay({ day, activities, onUpdateActivities }) {
+  const dateObj = day instanceof Date ? day : new Date(day);
+
+  // Format the date - assuming day is a Date object
+  const formattedDate = dateObj.toLocaleDateString('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric'
+  });
+
+  const handleAddActivity = () => {
+    onUpdateActivities(day,activities.index,'add',)
+  };
+
   return (
     <div className="itinerary-day">
-      <h3>Day {day}</h3>
+      <div className="day-date">{formattedDate}</div>
       <div className="activities">
         {activities.map((activity, index) => (
           <div key={index} className="activity">
             <input
-              type="time"
+              type="date"
               value={activity.time}
               onChange={(e) => onUpdateActivities(day, index, 'time', e.target.value)}
             />
@@ -27,9 +40,19 @@ function ItineraryDay({ day, activities, onUpdateActivities }) {
               value={activity.description}
               onChange={(e) => onUpdateActivities(day, index, 'description', e.target.value)}
             />
+            <button
+              onClick={() => onUpdateActivities(day, index, 'remove')}
+              className="remove-activity"
+              aria-label="Remove activity"
+            >
+              ×
+            </button>
           </div>
         ))}
-        <button onClick={() => onUpdateActivities(day, activities.length, 'add')}>
+        <button 
+          onClick={handleAddActivity} 
+          className="add-activity-button"
+        >
           Add Activity
         </button>
       </div>
