@@ -22,7 +22,7 @@ function ItineraryDay({ day, activities, onUpdateActivities }) {
         {activities.map((activity, index) => (
           <div key={index} className="activity">
             <input
-              type="time"
+              type="date"
               value={activity.time}
               onChange={(e) => onUpdateActivities(day, index, 'time', e.target.value)}
             />
@@ -40,10 +40,21 @@ function ItineraryDay({ day, activities, onUpdateActivities }) {
               value={activity.description}
               onChange={(e) => onUpdateActivities(day, index, 'description', e.target.value)}
             />
-            <button onClick={() => onUpdateActivities(day, index, 'remove')}>Remove</button>
+            <button
+              onClick={() => onUpdateActivities(day, index, 'remove')}
+              className="remove-activity"
+              aria-label="Remove activity"
+            >
+              ×
+            </button>
           </div>
         ))}
-        <button onClick={handleAddActivity}>Add Activity</button>
+        <button 
+          onClick={handleAddActivity} 
+          className="add-activity-button"
+        >
+          Add Activity
+        </button>
       </div>
     </div>
   );

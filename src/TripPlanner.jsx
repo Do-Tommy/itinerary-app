@@ -89,14 +89,19 @@ function TripPlanner() {
       </div>
 
       <div className="itinerary-container">
-        {calculateDays().map(day => (
-          <ItineraryDay
-            key={day}
-            day={day}
-            activities={trip.itinerary?.find(d => d.day === day)?.activities || []}
-            onUpdateActivities={handleActivityUpdate}
-          />
-        ))}
+        {calculateDays().map(day => {
+          const currentDate = new Date(trip.startDate); // Create a Date object from the start date
+          currentDate.setDate(currentDate.getDate() + day); // Increment the date by (day - 1)
+
+          return (
+            <ItineraryDay
+              key={day}
+              day={currentDate} // Pass the actual date object
+              activities={trip.itinerary?.find(d => d.day === day)?.activities || []}
+              onUpdateActivities={handleActivityUpdate}
+            />
+          );
+        })}
       </div>
 
       <button 
